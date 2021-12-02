@@ -4,7 +4,7 @@
 | --------------- | --------- | --------- | ------------------------------------------------------------------ |
 | meta            | object    | Yes       | See "meta" below                                                   |
 | recipient       | object    | Yes       | See "recipient" below                                              |
-| amount          | number    | Yes       | Amount (in base currency)                                          |
+| amount          | string    | Yes       | Amount (in base currency)                                          |
 | currency        | string    | Yes       | Currency code                                                      |
 | payer           | object    | No        | See "payer" below                                                  |
 | note            | string    | No        | Note about the payment                                             |
@@ -21,9 +21,9 @@ _Metadata about the document and it's format_
 
 | Name      | Type     | Required? | Comment                                                                         |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------- |
+| origin    | string   | Yes       | Origin application/client e.g "grindery"                                        |
 | format    | string   | Yes       | Always "payment_request"                                                        |
 | version   | string   | Yes       | Version of the document format used. Only "0.0.1" at the moment                 |
-| origin    | string   | Yes       | Origin application/client e.g "grindery"                                        |
 | updateOf  | string   | Yes       | ID/Hash of the document/record that this record/document replaces/supersedes    |
 
 
