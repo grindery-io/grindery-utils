@@ -17,7 +17,7 @@ YARN
 
 ### Payment Requests
 
-### Schema
+#### Schema
 See full schema for payment requests [here](https://github.com/grindery-io/grindery-utils/blob/master/src/data/types/PaymentRequest/)
 
 
