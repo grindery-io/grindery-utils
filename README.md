@@ -1,0 +1,44 @@
+# Grindery Utilities
+
+Collection of commonly used utilities for Grindery
+
+## Install
+
+NPM
+
+`npm install --save @grindery/utils`
+
+YARN
+
+`yarn add @grindery/utils`
+
+
+## Usage
+
+### Payment Requests
+
+### Schema
+See full schema for payment requests [here](https://github.com/grindery-io/grindery-utils/blob/master/src/data/types/PaymentRequest/)
+
+
+#### Sign Payment Request
+
+_Generate an EIP712 signature for the payment request_
+
+``` JavaScript
+import {web3 as gWeb3} from '@grindery/utils';
+
+const signature = await gWeb3.sign.PaymentRequest(provider, data);
+// "data" must include all required fields except for "signature"
+```
+
+#### Save Payment Request
+
+_Saving the payment request to IPFS storage_
+
+``` JavaScript
+import {storage as gStorage} from '@grindery/utils';
+
+const {cid} = await gStorage.ipfs(url).PaymentRequest.add(data);
+// "data" must include all required fields including the "signature"
+```

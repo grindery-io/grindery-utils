@@ -1,0 +1,29 @@
+{
+  "name": "@grindery/utils",
+  "version": "0.0.1-rc.10",
+  "description": "Grindery Utilities",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grindery-io/grindery-utils.git"
+  },
+  "keywords": [
+    "grindery"
+  ],
+  "author": {
+    "name": "David Semakula",
+    "email": "tdsemakula@gmail.com",
+    "url": "http://davidsemakula.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grindery-io/grindery-utils/issues"
+  },
+  "homepage": "https://github.com/grindery-io/grindery-utils#readme",
+  "dependencies": {
+    "ipfs-http-client": "^54.0.2"
+  }
+}

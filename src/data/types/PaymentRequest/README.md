@@ -22,9 +22,9 @@ _Metadata about the document and it's format_
 | Name      | Type     | Required? | Comment                                                                         |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------- |
 | origin    | string   | Yes       | Origin application/client e.g "grindery"                                        |
-| format    | string   | Yes       | Always "payment_request"                                                        |
+| format    | string   | Yes       | Always "PaymentRequest"                                                        |
 | version   | string   | Yes       | Version of the document format used. Only "0.0.1" at the moment                 |
-| updateOf  | string   | Yes       | ID/Hash of the document/record that this record/document replaces/supersedes    |
+| updateOf  | string   | No        | CID/Hash of the document/record that this record/document replaces/supersedes   |
 
 
 ## recipient
