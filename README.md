@@ -6,11 +6,15 @@ Collection of commonly used utilities for Grindery
 
 NPM
 
-`npm install --save @grindery/utils`
+```
+npm install --save @grindery/utils
+```
 
 YARN
 
-`yarn add @grindery/utils`
+```
+yarn add @grindery/utils
+```
 
 
 ## Usage
@@ -44,5 +48,7 @@ const ipfsUrl = 'http://localhost:5001/api/v0';
 
 const {cid} = await gStorage.ipfs(ipfsUrl).PaymentRequest.add(data);
 // "data" must include all required fields including the "signature"
-// Save the returned cid/hash to your local datastore and use it as the `meta.updateOf` value for updates
 ```
+
+**NOTE:**
+Save the returned cid/hash to your local datastore and use it as the `meta.updateOf` value for updates
