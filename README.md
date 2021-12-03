@@ -39,6 +39,7 @@ _Saving the payment request to IPFS storage_
 ``` JavaScript
 import {storage as gStorage} from '@grindery/utils';
 
-const {cid} = await gStorage.ipfs(url).PaymentRequest.add(data);
+const ipfsUrl = '<ipfs node/gateway http(s) api url>';
+const {cid} = await gStorage.ipfs(ipfsUrl).PaymentRequest.add(data);
 // "data" must include all required fields including the "signature"
 ```
