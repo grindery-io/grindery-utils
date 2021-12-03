@@ -41,6 +41,8 @@ import {storage as gStorage} from '@grindery/utils';
 
 const ipfsUrl = 'http://localhost:5001/api/v0'; 
 // replace with IPFS node/gateway HTTP API url
+
 const {cid} = await gStorage.ipfs(ipfsUrl).PaymentRequest.add(data);
 // "data" must include all required fields including the "signature"
+// Save the returned cid/hash to your local datastore and use it as the `meta.updateOf` value for updates
 ```
