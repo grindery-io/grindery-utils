@@ -25,6 +25,11 @@ const config = {
               presets: [
                 [
                   '@babel/preset-env',
+                  {
+                    exclude: [
+                      '@babel/plugin-transform-regenerator'
+                    ]
+                  }
                 ],
               ],
             }
