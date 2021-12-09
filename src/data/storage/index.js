@@ -1,1 +1,3 @@
-export * as ipfs from './ipfs';
+import ipfsClient from './ipfs';
+
+export const ipfs = ipfsClient;
