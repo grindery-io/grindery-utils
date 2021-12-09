@@ -1,6 +1,6 @@
 {
   "name": "@grindery/utils",
-  "version": "0.0.1-rc.13",
+  "version": "0.0.1",
   "description": "Grindery Utilities",
   "main": "dist/index.js",
   "scripts": {
