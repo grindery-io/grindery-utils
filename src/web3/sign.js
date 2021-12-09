@@ -72,7 +72,10 @@ export const signTypedData = async (provider, typedData) => {
       }
     }
   }
-  return signature;
+  if(signature) {
+    return signature;
+  }
+  throw new Error('Failed to sign the data');
 };
 
 export const PaymentRequest = async (provider, data) => {
