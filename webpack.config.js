@@ -2,7 +2,7 @@ const path = require('path'),
   { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const config = {
-  target: 'node',
+  target: 'web',
   mode: 'production',
   entry: {
     index: './src/index.js',
@@ -25,11 +25,6 @@ const config = {
               presets: [
                 [
                   '@babel/preset-env',
-                  {
-                    targets: {
-                      'node': 'current'
-                    }
-                  }
                 ],
               ],
             }

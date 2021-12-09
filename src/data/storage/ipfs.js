@@ -1,7 +1,25 @@
 import axios from 'axios';
-import FormData from 'form-data';
 
 import {parsePaymentType} from '../../utils';
+
+const createFormData = () => {
+  try {
+    return new FormData();
+  } catch (e) {
+    const FormData = require('form-data');
+    return new FormData();
+  }
+};
+
+const createBlobOrBuffer = data => {
+  try {
+    return new Blob([data || ''], {
+      type: 'text/plain'
+    });
+  } catch (e) {
+    return Buffer.from(data || '');
+  }
+}
 
 export default (url='http://localhost:5001/api/v0', options) => {
   const {username=null, password=null} = options || {};
@@ -12,11 +30,18 @@ export default (url='http://localhost:5001/api/v0', options) => {
 
   const client = {
     add: data => {
-      let formData = new FormData();
-      formData.append('file', Buffer.from(JSON.stringify(data)));
+      let formData = createFormData();
+      formData.append('file', createBlobOrBuffer(JSON.stringify(data)));
+      let formDataHeaders = {};
+      if(typeof formData.getHeaders === 'function') {
+        formDataHeaders = formData.getHeaders();
+      } else if(formData._boundary) {
+        formDataHeaders['Content-Type']= `multipart/form-data; boundary=${formData._boundary}`;
+      }
+
       return axios.post(`${url}/add`, formData, {
         headers: {
-          ...formData.getHeaders(),
+          ...formDataHeaders,
           ...headers,
         }
       }).then(res => {
