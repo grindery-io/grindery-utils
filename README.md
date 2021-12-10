@@ -52,3 +52,17 @@ const {cid} = await gStorage.ipfs(ipfsUrl).PaymentRequest.add(data);
 
 **NOTE:**
 Save the returned cid/hash to your local datastore and use it as the `meta.updateOf` value for updates
+
+
+### Batch Payments
+
+#### Schema
+See full schema for batch payments [here](https://github.com/grindery-io/grindery-utils/blob/master/src/data/types/BatchPayment/)
+
+
+#### Save Batch Payment
+
+_Saving batch payment to IPFS storage_
+```
+const {cid} = await gStorage.ipfs(ipfsUrl).BatchPayment.add(data);
+```

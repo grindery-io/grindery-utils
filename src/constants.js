@@ -8,4 +8,5 @@ export const ORIGINS = {
 
 export const FORMATS = {
   PAYMENT_REQUEST: 'PaymentRequest',
+  BATCH_PAYMENT: 'BatchPayment',
 };

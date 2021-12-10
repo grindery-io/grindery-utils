@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {parsePaymentType} from '../../utils';
+import {parseBatchPaymentType, parsePaymentType} from '../../utils';
 
 const createFormData = () => {
   try {
@@ -66,6 +66,11 @@ export default (url='http://localhost:5001/api/v0', options) => {
         throw new Error('Empty response');
       });
     },
+    get: hash => {
+      return axios.post(`${url}/cat?arg=${encodeURIComponent(hash)}`).then(res => {
+        return res && res.data;
+      });
+    },
   };
   return {
     client,
@@ -73,6 +78,13 @@ export default (url='http://localhost:5001/api/v0', options) => {
       add: async data => {
         return client.add(
           parsePaymentType(data, true)
+        );
+      },
+    },
+    BatchPayment: {
+      add: async data => {
+        return client.add(
+          parseBatchPaymentType(data)
         );
       },
     },

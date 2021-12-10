@@ -35,3 +35,36 @@ export const parsePaymentType = (data, signed=false) => {
     }:{}),
   };
 };
+
+export const parseBatchPaymentType = (data) => {
+  const {
+    payments, amount, currency, creator,
+    meta=null,
+  } = data || {};
+  const {origin :metaOrigin=ORIGINS.GRINDERY, version=VERSIONS.ZERO_ZERO_ONE, updateOf=null} = meta || {};
+
+  if(!payments || !creator) {
+    throw new Error('payments and creator are required')
+  }
+
+  let optionalFields = {};
+  for (const key of ['note', 'reference', 'batchAddress', 'transactionHash', 'createdAt']) {
+    if(key && data && data[key]) {
+      optionalFields[key] = data[key];
+    }
+  }
+
+  return {
+    meta: {
+      origin: metaOrigin || origin || ORIGINS.GRINDERY,
+      format: FORMATS.BATCH_PAYMENT,
+      version: version || VERSIONS.ZERO_ZERO_ONE,
+      ...(updateOf?{updateOf}:{}),
+    },
+    payments,
+    amount: (amount || '').toString(),
+    currency,
+    ...optionalFields,
+    creator,
+  };
+};
